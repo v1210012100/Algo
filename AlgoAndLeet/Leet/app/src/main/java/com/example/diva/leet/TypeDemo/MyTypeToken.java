@@ -1,4 +1,4 @@
-package com.example.diva.leet;
+package com.example.diva.leet.TypeDemo;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

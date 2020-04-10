@@ -3,22 +3,26 @@ package com.example.diva.leet.ByteDanceLeet;
 public class Leet14 {
 
     /***
-     * 最长公共前缀
+     * 暴力解法
      * @param strs
      * @return
      */
     public String longestCommonPrefix(String[] strs) {
-        if (strs.length == 0) return "";
-        String prefix = strs[0];
-        for (int i = 1; i < strs.length; i++){
-            // 由于是寻找公共前缀
-            while (strs[i].indexOf(prefix) != 0) {
-                prefix = prefix.substring(0, prefix.length() - 1);
-                if (prefix.isEmpty()) return "";
+        if(strs.length == 0) return "";
+        String pre = strs[0];
+        for(int i=1;i<strs.length;i++){
+            int j = 0;
+            while(i<pre.length() && i<strs[i].length()){
+                if(pre.charAt(j) == strs[i].charAt(j)){
+                    j++;
+                }else{
+                    break;
+                }
             }
+            if(j==0) return "";
+            pre = pre.substring(0,j);
         }
-
-        return prefix;
+        return  pre;
 
     }
 }

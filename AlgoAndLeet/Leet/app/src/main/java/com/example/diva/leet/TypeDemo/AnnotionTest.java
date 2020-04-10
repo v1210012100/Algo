@@ -1,7 +1,6 @@
-package com.example.diva.leet;
+package com.example.diva.leet.TypeDemo;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 
 public class AnnotionTest<T> {
@@ -23,7 +22,7 @@ public class AnnotionTest<T> {
 
     public static void main(String args[]) {
         try {
-            Class clz = Class.forName("com.example.diva.leet.GitHubService");
+            Class clz = Class.forName("com.example.diva.leet.TypeDemo.GitHubService");
             Method method = clz.getMethod("listRepos", String.class);
             System.out.println("getGenericReturnType     " + method.getGenericReturnType());
             System.out.println("getReturnType     " + method.getReturnType());
