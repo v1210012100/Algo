@@ -33,10 +33,31 @@ public class LeetCode42 {
 
     /***
      * 优化的暴力解法。
+     * 通过两次遍历 。获取 第 i个 柱子的左边 最 高的柱子 ，和 右边最 高的柱子。 这个最高的柱子 是不含自身比较的。
+     * 所以需要两个数组来保存 。
+     * 一个重要的点： 第 一个柱子和最后一个柱子的顶部是不会有水的 。
+     *  Maxleft [i]      i= 2   。也就是计算第一个  0  1 个的最高的 。 由于之前  1 没参加计算。所以它要参加了
+     *
      * @param height
      * @return
      */
-//    public int trap2(int[] height) {
-//
-//    }
+   public int trap2(int[] height) {
+        if(height.length<2) return 0;
+        int maxLeft[] = new int[height.length];
+        int maxRight[] = new int[height.length];
+        for(int i =1;i<height.length-1;i++){
+            maxLeft[i] = Math.max(maxLeft[i-1],height[i-1]);
+        }
+       for(int i =height.length-2;i>0;i--){
+           maxRight[i] = Math.max(maxRight[i+1],height[i+1]);
+       }
+       int sum =0;
+       for(int i =1;i<height.length-1;i++){
+           int max = Math.min(maxLeft[i],maxRight[i]);
+           if(max>height[i]){
+               sum = sum+ (max-height[i]);
+           }
+       }
+       return  sum;
+  }
 }
