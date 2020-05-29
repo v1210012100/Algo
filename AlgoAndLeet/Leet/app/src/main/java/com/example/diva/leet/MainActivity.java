@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /***
+     * 添加测试的git 注释
+     */
     @Override
     protected void onResume() {
         super.onResume();
